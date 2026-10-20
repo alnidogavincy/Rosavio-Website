@@ -1,0 +1,78 @@
+{
+  "baseURL": "http://127.0.0.1:3001",
+  "results": [
+    {
+      "name": "Desktop uses a pinned GSAP stage",
+      "pass": true
+    },
+    {
+      "name": "Desktop chapter 1: dots, copy, screenshot",
+      "pass": true
+    },
+    {
+      "name": "Desktop chapter 2: dots, copy, screenshot",
+      "pass": true
+    },
+    {
+      "name": "Desktop chapter 3: dots, copy, screenshot",
+      "pass": true
+    },
+    {
+      "name": "Desktop chapter 4: dots, copy, screenshot",
+      "pass": true
+    },
+    {
+      "name": "Dialog full original image, focus trap, Escape and focus restoration",
+      "pass": true
+    },
+    {
+      "name": "Keyboard PageUp / PageDown and next button",
+      "pass": true
+    },
+    {
+      "name": "Mouse wheel advances native scroll and chapter state",
+      "pass": true
+    },
+    {
+      "name": "Live reduced-motion preference removes pin and loops",
+      "pass": true
+    },
+    {
+      "name": "Responsive 360x800: all scenes, no overflow or product/copy collision",
+      "pass": true
+    },
+    {
+      "name": "Responsive 390x844: all scenes, no overflow or product/copy collision",
+      "pass": true
+    },
+    {
+      "name": "Responsive 768x1024: all scenes, no overflow or product/copy collision",
+      "pass": true
+    },
+    {
+      "name": "Responsive 1920x1080: all scenes, no overflow or product/copy collision",
+      "pass": true
+    },
+    {
+      "name": "Direct link to product resolves correctly",
+      "pass": true
+    },
+    {
+      "name": "CTA story sequence, header action, and dialog backdrop",
+      "pass": true
+    },
+    {
+      "name": "Touch phone: native swipe scroll and readable product",
+      "pass": true
+    },
+    {
+      "name": "No JavaScript fallback retains all sections and anchor navigation",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

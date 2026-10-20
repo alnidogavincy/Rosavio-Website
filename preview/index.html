@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#24151f" />
+  <meta name="description" content="Rosavia — Soft Feminine Scent. Extrait de Parfume 18 mL. Pengalaman visual yang lembut dan elegan." />
+  <title>Rosavia — Soft Feminine Scent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#story">Lewati navigasi</a>
+  <header class="site-header">
+    <a class="logo" href="#scene-1" aria-label="Rosavia, ke awal">Rosavia<span class="logo-star" aria-hidden="true">✧</span></a>
+    <span class="top-label">An olfactory reverie</span>
+    <button class="header-action" type="button" data-jump="3">Explore the fragrance <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <aside class="chapter-rail" aria-label="Bab perjalanan Rosavia">
+    <span class="rail-word">THE ROSAVIA STORY</span>
+    <span class="rail-line" aria-hidden="true"></span>
+    <span class="rail-count"><span id="counter">01</span><span class="rail-slash"> / </span>04</span>
+  </aside>
+  <nav class="scene-nav" aria-label="Navigasi adegan">
+    <button data-jump="0" aria-label="Adegan 1: The Rose" class="dot is-active" aria-current="step"></button>
+    <button data-jump="1" aria-label="Adegan 2: The Essence" class="dot"></button>
+    <button data-jump="2" aria-label="Adegan 3: The Craft" class="dot"></button>
+    <button data-jump="3" aria-label="Adegan 4: Meet Rosavia" class="dot"></button>
+    <span class="nav-divider"></span>
+    <button id="next-scene" class="next-arrow" aria-label="Adegan selanjutnya">↓</button>
+  </nav>
+
+  <main id="story">
+    <section class="scene scene-rose in-view" id="scene-1" data-scene="0" aria-labelledby="title-one">
+      <div class="rose-photo" aria-hidden="true"></div>
+      <div class="scene-shade" aria-hidden="true"></div>
+      <span class="scene-index scene-index--right" aria-hidden="true">I / IV</span>
+      <div class="scene-content scene-content--left">
+        <p class="eyebrow reveal">CHAPTER 01 <span class="dot-mid">·</span> THE BEGINNING</p>
+        <h1 id="title-one" class="headline reveal">Where <em>softness</em><br />begins.</h1>
+        <p class="scene-desc reveal">Ada keindahan dalam kesan yang lembut. Sebuah cerita visual tentang sisi feminin Rosavia.</p>
+        <button class="text-cta reveal" data-jump="1" type="button">Discover the story <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="bottom-scene-label" aria-hidden="true">01 <span>Bloom</span> <i></i> Rose-inspired visual</div>
+    </section>
+
+    <section class="scene scene-essence" id="scene-2" data-scene="1" aria-labelledby="title-two">
+      <div class="ambient ambient--rose" aria-hidden="true"></div>
+      <div class="scene-content scene-content--left">
+        <p class="eyebrow reveal">CHAPTER 02 <span class="dot-mid">·</span> THE FEELING</p>
+        <h2 id="title-two" class="headline reveal">A delicate<br /><em>essence.</em></h2>
+        <p class="scene-desc reveal">Dibayangkan melalui kelopak, cahaya, dan gerak yang tenang. Setiap adegan menghadirkan karakter lembut Rosavia.</p>
+        <button class="text-cta reveal" data-jump="2" type="button">Follow the feeling <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="bowl-composition" aria-hidden="true">
+        <div class="bowl-halo"></div>
+        <img class="bowl" src="../public/assets/glass-bowl.svg" alt="" />
+        <img class="float-petal petal-a" src="../public/assets/petal-rose.svg" alt="" />
+        <img class="float-petal petal-b" src="../public/assets/petal-small.svg" alt="" />
+        <img class="float-petal petal-c" src="../public/assets/petal-rose.svg" alt="" />
+      </div>
+      <div class="bottom-scene-label">02 <span>Essence</span> <i></i> A study in softness</div>
+    </section>
+
+    <section class="scene scene-craft" id="scene-3" data-scene="2" aria-labelledby="title-three">
+      <div class="craft-glow" aria-hidden="true"></div>
+      <div class="scene-content scene-content--left">
+        <p class="eyebrow reveal">CHAPTER 03 <span class="dot-mid">·</span> THE CHARACTER</p>
+        <h2 id="title-three" class="headline reveal">Quietly<br /><em>captivating.</em></h2>
+        <p class="scene-desc reveal">Sebuah komposisi visual tentang kelembutan dan keanggunan—terinspirasi dari karakter Soft Feminine Scent.</p>
+        <button class="text-cta reveal" data-jump="3" type="button">Meet Rosavia <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="craft-composition" aria-hidden="true">
+        <img class="craft-vessel" src="../public/assets/alembic.svg" alt="" />
+        <img class="gold-drop" src="../public/assets/drop.svg" alt="" />
+        <div class="craft-orbit craft-orbit--one"></div><div class="craft-orbit craft-orbit--two"></div>
+      </div>
+      <div class="bottom-scene-label">03 <span>Character</span> <i></i> An artistic interpretation</div>
+    </section>
+
+    <section class="scene scene-product" id="scene-4" data-scene="3" aria-labelledby="title-four">
+      <div class="product-glow" aria-hidden="true"></div>
+      <div class="product-line" aria-hidden="true"></div>
+      <div class="scene-content scene-content--left scene-content--product">
+        <p class="eyebrow reveal">CHAPTER 04 <span class="dot-mid">·</span> THE REVEAL</p>
+        <h2 id="title-four" class="headline reveal">Meet<br /><em>Rosavia.</em></h2>
+        <p class="scene-desc reveal">Soft Feminine Scent. Hadir dalam botol 18 mL dengan tampilan pink yang elegan.</p>
+        <div class="product-spec reveal"><span>EXTRAIT DE PARFUME</span><span>18 mL</span></div>
+        <button type="button" class="solid-cta reveal" id="details-open">Explore the bottle <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="product-composition" aria-hidden="true">
+        <div class="product-disc"></div>
+        <img class="product-flower" src="../public/assets/rose-line.svg" alt="" />
+        <img class="product-bottle" src="../public/assets/rosavia-bottle-transparent.png" alt="" />
+        <img class="product-petal product-petal--one" src="../public/assets/petal-rose.svg" alt="" />
+        <img class="product-petal product-petal--two" src="../public/assets/petal-small.svg" alt="" />
+      </div>
+      <div class="bottom-scene-label">04 <span>Rosavia</span> <i></i> Soft Feminine Scent</div>
+    </section>
+  </main>
+
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="dialog-heading">
+    <button type="button" class="dialog-close" aria-label="Tutup detail" id="details-close">✕</button>
+    <img src="../public/assets/rosavia-original.webp" alt="Botol dan kotak parfum Rosavia dalam studio bernuansa pink" />
+    <div class="dialog-copy">
+      <p class="eyebrow">THE ROSAVIA FRAGRANCE</p>
+      <h2 id="dialog-heading">A little softness,<br />a lasting impression.</h2>
+      <p><strong>Rosavia</strong> — Extrait de Parfume, 18 mL. Soft Feminine Scent.</p>
+      <p class="placeholder-note">Informasi harga, komposisi, stok, dan tautan checkout perlu diisi oleh pemilik brand sebelum dipublikasikan.</p>
+      <button type="button" id="dialog-back">Back to story →</button>
+    </div>
+  </dialog>
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "base": "http://127.0.0.1:3001",
+  "results": [
+    {
+      "name": "Reference desktop composition and local fonts",
+      "pass": true
+    },
+    {
+      "name": "Chapter 1 background, cards and detail dialog",
+      "pass": true
+    },
+    {
+      "name": "Chapter 2 background, cards and detail dialog",
+      "pass": true
+    },
+    {
+      "name": "Chapter 3 background, cards and detail dialog",
+      "pass": true
+    },
+    {
+      "name": "Chapter 4 background, cards and detail dialog",
+      "pass": true
+    },
+    {
+      "name": "Noir and Pink Studio controls",
+      "pass": true
+    },
+    {
+      "name": "Product dialog: real photo, focus trap, Escape and return focus",
+      "pass": true
+    },
+    {
+      "name": "All footer links have real modal actions",
+      "pass": true
+    },
+    {
+      "name": "Language switch updates editorial and document language",
+      "pass": true
+    },
+    {
+      "name": "Wheel and PageUp/PageDown follow story/cards/next rhythm",
+      "pass": true
+    },
+    {
+      "name": "Tour starts, advances, pauses; spray works",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion removes loops and disables autoplay",
+      "pass": true
+    },
+    {
+      "name": "Responsive 360x800",
+      "pass": true
+    },
+    {
+      "name": "Responsive 390x844",
+      "pass": true
+    },
+    {
+      "name": "Responsive 768x1024",
+      "pass": true
+    },
+    {
+      "name": "Responsive 1920x1080",
+      "pass": true
+    },
+    {
+      "name": "Touch swipe and modal scroll isolation",
+      "pass": true
+    },
+    {
+      "name": "Direct link and no runtime exceptions",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

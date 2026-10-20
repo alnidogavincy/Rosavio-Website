@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Rosavia — Atelier de Parfume | Extrait de Parfume 18mL</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-obsidian: #0a0c0d;
+      --rose-accent: #f4a6b8;
+      --rose-deep: #d44d72;
+      --gold-warm: #e6c699;
+    }
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #08090a;
+      color: #f7f4f0;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+    .font-editorial {
+      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.015em;
+    }
+    .font-serif-luxury {
+      font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Giant Bottom-Left Outlined Watermark Text matching video */
+    .watermark-stroke {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 500;
+      color: transparent;
+      -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.22);
+      letter-spacing: 0.02em;
+      line-height: 0.82;
+      pointer-events: none;
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Frosted Glassmorphism Cards matching video */
+    .luxury-glass-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.05) 100%);
+      backdrop-filter: blur(22px) saturate(135%);
+      -webkit-backdrop-filter: blur(22px) saturate(135%);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .luxury-glass-card:hover {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.19) 0%, rgba(244, 166, 184, 0.10) 100%);
+      border-color: rgba(244, 166, 184, 0.48);
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6), 0 0 25px rgba(244, 166, 184, 0.15);
+    }
+
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+    }
+    .luxury-glass-card:hover .glass-pill {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Stage Background Crossfade & Scale */
+    .stage-bg-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1), transform 1.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.95s ease;
+      will-change: opacity, transform;
+    }
+    .stage-bg-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Rosavia Hero Bottle 3D Float & Glow */
+    @keyframes floatBottle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(0.6deg); }
+    }
+    .bottle-float {
+      animation: floatBottle 6s ease-in-out infinite;
+      filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 38px rgba(244, 166, 184, 0.24));
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    }
+    .bottle-float:hover {
+      filter: drop-shadow(0 32px 58px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 52px rgba(244, 166, 184, 0.45));
+    }
+
+    /* Subtle Scroll Pulse Line */
+    @keyframes scrollPulse {
+      0% { transform: scaleX(0.3); opacity: 0.3; }
+      50% { transform: scaleX(1); opacity: 1; }
+      100% { transform: scaleX(0.3); opacity: 0.3; }
+    }
+    .scroll-line-anim {
+      animation: scrollPulse 2.6s ease-in-out infinite;
+    }
+
+    /* Custom Scrollbar for Modals */
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="relative w-full h-screen overflow-hidden bg-[#08090a] text-[#f7f4f0]">
+
+  <!-- ================= BACKGROUND VISUAL LAYERS (STAGES 01 - 04) ================= -->
+  <div id="backgrounds-container" class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+    
+    <!-- Stage 01: The Harvest (Rosa Damascena on dark obsidian) -->
+    <div id="bg-stage-0" class="stage-bg-layer opacity-100 scale-100">
+      <img src="/assets/atelier/reference-01.jpg" alt="Rosa Damascena Harvest" class="max-w-full h-auto" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07090a]/90 via-[#07090a]/30 to-[#07090a]/80"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#07090a]/90 via-transparent to-[#07090a]/65"></div>
+    </div>
+
+    <!-- Stage 02: Extraction (Glass & Copper bowl with falling rose petals) -->
+    <div id="bg-stage-1" class="stage-bg-layer opacity-0 scale-110">
+      <img src="/assets/atelier/reference-02.jpg" alt="Capturing the Scent Extraction" class="max-w-full h-auto" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#08090a]/90 via-[#08090a]/25 to-[#08090a]/75"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#08090a]/90 via-transparent to-[#08090a]/65"></div>
+    </div>
+
+    <!-- Stage 03: The Structure (Hammered Copper Alembic Still) -->
+    <div id="bg-stage-2" class="stage-bg-layer opacity-0 scale-110">
+      <img src="/assets/atelier/reference-03.jpg" alt="Olfactory Pyramid Copper Alembic" class="max-w-full h-auto" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#08090a]/90 via-[#08090a]/35 to-[#08090a]/80"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#08090a]/90 via-transparent to-[#08090a]/65"></div>
+    </div>
+
+    <!-- Stage 04A: Maturation - Pink Rose Studio Reveal (Uploaded Studio Photo, matching video 00:08) -->
+    <div id="bg-stage-3-studio" class="stage-bg-layer opacity-0 scale-105">
+      <img src="/assets/atelier/reference-04.jpg" alt="Rosavia Extrait de Parfume in Pink Rose Studio" class="max-w-full h-auto" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#12090d]/85 via-[#12090d]/25 to-[#12090d]/70"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0d070a]/90 via-transparent to-[#0d070a]/55"></div>
+    </div>
+
+    <!-- Stage 04B: Maturation - Noir Floating Petals + Centered Rosavia Cutout Bottle (matching video 00:09-00:10) -->
+    <div id="bg-stage-3-noir" class="stage-bg-layer opacity-0 scale-105">
+      <img src="/assets/atelier/reference-05.jpg" alt="Floating Rose Petals Noir Backdrop" class="max-w-full h-auto" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#080709]/85 via-transparent to-[#080709]/80"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#080709]/92 via-transparent to-[#080709]/65"></div>
+    </div>
+  </div>
+
+  <!-- ================= INTERACTIVE PARTICLE & PETAL CANVAS ================= -->
+  <canvas id="atelier-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+  <!-- ================= STAGE 04 CENTERED HERO ROSAVIA BOTTLE (CUTOUT) ================= -->
+  <div id="hero-bottle-stage4" class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-0 scale-90 transition-all duration-1000 ease-out">
+    <div id="bottle-tilt-wrapper" class="relative flex flex-col items-center justify-center pointer-events-auto cursor-pointer group" title="Click to atomize Rosavia Extrait de Parfume mist">
+      <!-- Ambient Rose Glow Behind Flacon -->
+      <div class="absolute w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-[#f4a6b8]/25 via-[#d44d72]/15 to-transparent blur-3xl transition-all duration-700 group-hover:scale-125 group-hover:from-[#f4a6b8]/40"></div>
+      
+      <!-- Uploaded Rosavia Cutout Bottle -->
+      <img
+        id="rosavia-cutout-img"
+        src="/assets/atelier/reference-06.png"
+        alt="Rosavia Extrait de Parfume 18mL Flacon"
+        class="bottle-float h-[42vh] sm:h-[52vh] md:h-[58vh] w-auto object-contain select-none"
+      />
+
+      <!-- Interactive Hover Hint Badge -->
+      <div class="mt-2 px-3 py-1 rounded-full bg-black/55 border border-white/20 backdrop-blur-md text-[10px] tracking-[0.2em] uppercase text-pink-200/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        Click Flacon to Spray Mist ✦
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOP HEADER (BRAND & CONTROLS) ================= -->
+  <header class="relative z-30 w-full pt-5 sm:pt-7 px-6 sm:px-12 flex items-start justify-between pointer-events-none">
+    <!-- Left Top Quick Action: Auto-Play Cinematic Tour -->
+    <div class="pointer-events-auto flex items-center gap-2.5">
+      <button
+        id="btn-cinematic-tour"
+        type="button"
+        class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.14] border border-white/20 backdrop-blur-md text-[11px] tracking-[0.12em] uppercase text-white/90 transition-all"
+      >
+        <span id="tour-dot" class="w-2 h-2 rounded-full bg-[#f4a6b8] animate-pulse"></span>
+        <span id="tour-btn-label">Auto-Play Video Tour</span>
+      </button>
+
+      <button
+        id="btn-spray-mist"
+        type="button"
+        class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f4a6b8]/10 hover:bg-[#f4a6b8]/25 border border-[#f4a6b8]/35 backdrop-blur-md text-[11px] tracking-[0.1em] uppercase text-pink-100 transition-all"
+      >
+        <span>✦</span>
+        <span id="spray-btn-label">Spray Rosavia</span>
+      </button>
+    </div>
+
+    <!-- Center Brand Title (Exact match to video: Maison Rose / Atelier de Parfum -> Maison Rosavia / Atelier de Parfume) -->
+    <div class="pointer-events-auto text-center flex flex-col items-center cursor-pointer" id="brand-home-trigger">
+      <span class="text-[13px] sm:text-[14px] font-medium tracking-[0.06em] text-white/95">Maison Rosavia</span>
+      <span class="text-[11px] sm:text-[12px] font-light tracking-[0.04em] text-white/65 mt-0.5">Atelier de Parfume</span>
+    </div>
+
+    <!-- Right Top Quick Action: Explore Rosavia 18mL Studio / Order -->
+    <div class="pointer-events-auto flex items-center gap-2">
+      <button
+        id="btn-open-product-showcase"
+        type="button"
+        class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#d44d72]/80 to-[#b03556]/80 hover:from-[#e0587e] hover:to-[#c43f63] border border-pink-300/35 shadow-lg shadow-pink-950/40 backdrop-blur-md text-[11px] font-medium tracking-[0.12em] uppercase text-white transition-all"
+      >
+        <span id="showcase-btn-label">Rosavia 18mL</span>
+        <span>→</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= LEFT VERTICAL PROGRESS NAVIGATION (MATCHING VIDEO) ================= -->
+  <nav
+    aria-label="Process Stages"
+    class="fixed left-5 sm:left-10 top-[24%] sm:top-[27%] z-30 hidden md:flex flex-col gap-3.5 text-[12px] tracking-[0.02em]"
+  >
+    <button type="button" data-stage-nav="0" class="stage-nav-btn group flex flex-col items-start text-left transition-all py-0.5">
+      <span class="nav-indicator h-[1.5px] bg-white transition-all duration-500 mb-1.5 w-6 opacity-100"></span>
+      <span class="nav-label font-medium text-white transition-colors">The Harvest</span>
+    </button>
+
+    <button type="button" data-stage-nav="1" class="stage-nav-btn group flex flex-col items-start text-left transition-all py-0.5">
+      <span class="nav-indicator h-[1.5px] bg-white transition-all duration-500 mb-1.5 w-0 opacity-0"></span>
+      <span class="nav-label font-normal text-white/45 group-hover:text-white/80 transition-colors">Extraction</span>
+    </button>
+
+    <button type="button" data-stage-nav="2" class="stage-nav-btn group flex flex-col items-start text-left transition-all py-0.5">
+      <span class="nav-indicator h-[1.5px] bg-white transition-all duration-500 mb-1.5 w-0 opacity-0"></span>
+      <span class="nav-label font-normal text-white/45 group-hover:text-white/80 transition-colors">The Structure</span>
+    </button>
+
+    <button type="button" data-stage-nav="3" class="stage-nav-btn group flex flex-col items-start text-left transition-all py-0.5">
+      <span class="nav-indicator h-[1.5px] bg-white transition-all duration-500 mb-1.5 w-0 opacity-0"></span>
+      <span class="nav-label font-normal text-white/45 group-hover:text-white/80 transition-colors">Maturation</span>
+    </button>
+  </nav>
+
+  <!-- ================= RIGHT COUNTER & THE MATERIAL CALLOUT (MATCHING VIDEO) ================= -->
+  <aside class="fixed right-5 sm:right-12 top-[19%] sm:top-[25%] z-30 flex items-start gap-5 sm:gap-8">
+    <!-- /01 -> /04 Step Counter Button -->
+    <button
+      id="btn-step-counter"
+      type="button"
+      title="Advance to next stage"
+      class="group flex flex-col items-start text-left font-editorial text-lg sm:text-2xl leading-none text-white/90 hover:text-pink-200 transition-colors"
+    >
+      <span id="counter-current" class="font-medium tracking-wider">/01</span>
+      <span class="my-1.5 flex items-center text-white/75 group-hover:translate-x-1 transition-transform">
+        <span class="w-6 sm:w-8 h-[1px] bg-white/75"></span>
+        <span class="text-[11px] -ml-1">→</span>
+      </span>
+      <span class="text-white/55 text-base sm:text-xl">/04</span>
+    </button>
+
+    <!-- THE MATERIAL Block -->
+    <div class="flex flex-col items-start min-w-[135px] sm:min-w-[185px]">
+      <span id="material-heading-label" class="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-white/65 pb-2 border-b border-white/25 w-full">
+        THE MATERIAL
+      </span>
+      <h2
+        id="material-title"
+        class="font-editorial text-xl sm:text-3xl md:text-[34px] font-normal leading-[1.06] text-white mt-2.5 transition-all duration-500"
+      >
+        /Rosa<br />Damascena
+      </h2>
+      <!-- Stage 04 Backdrop Mode Switcher (Visible in Stage 4 so user can view both uploaded images!) -->
+      <div id="stage4-mode-switcher" class="hidden mt-3 pointer-events-auto">
+        <div class="inline-flex rounded-full p-0.5 bg-black/50 border border-white/20 backdrop-blur-md text-[10px]">
+          <button type="button" id="btn-mode-noir" class="px-2.5 py-1 rounded-full bg-white/20 text-white font-medium transition-all">
+            Noir Flacon
+          </button>
+          <button type="button" id="btn-mode-studio" class="px-2.5 py-1 rounded-full text-white/65 hover:text-white transition-all">
+            Pink Studio
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN EDITORIAL CONTENT & GLASS CARDS AREA ================= -->
+  <main class="relative z-20 w-full h-[calc(100vh-140px)] flex flex-col justify-between px-6 sm:px-14 md:pl-[12.5%] md:pr-14 pt-6 sm:pt-12 pb-6 pointer-events-none">
+    
+    <!-- Upper / Middle Editorial Headline & Story Paragraph -->
+    <div class="max-w-xl pointer-events-auto mt-4 sm:mt-8">
+      <!-- Eyebrow: ─── /01 — HARVEST -->
+      <div class="flex items-center gap-3 mb-3 sm:mb-4">
+        <span class="w-8 sm:w-10 h-[1.5px] bg-white/80"></span>
+        <span id="stage-eyebrow" class="text-[10px] sm:text-[11px] font-medium tracking-[0.24em] uppercase text-white/85">
+          /01 — HARVEST
+        </span>
+      </div>
+
+      <!-- Large Display Serif Title -->
+      <h1
+        id="stage-headline"
+        class="font-editorial text-4xl sm:text-6xl md:text-[68px] font-normal leading-[0.98] tracking-tight text-white transition-all duration-500"
+      >
+        Where<br />Perfume<br />Begins
+      </h1>
+
+      <!-- Story Paragraph Container (Collapses smoothly when Glass Cards expand, just like in the video!) -->
+      <div
+        id="story-body-container"
+        class="mt-5 sm:mt-6 max-w-md transition-all duration-500 origin-top opacity-100 max-h-72 overflow-hidden"
+      >
+        <p id="stage-description" class="text-xs sm:text-[13.5px] leading-[1.68] text-white/80 font-light">
+          Rosa damascena is cut by hand between five and nine in the morning, before the sun burns off the lightest molecules. It takes roughly 3,500 kg of petals to distil a single kilogram of rose otto for <strong class="text-pink-200 font-medium">Rosavia</strong>. Everything the finished Extrait de Parfume is capable of becoming is decided here, in the field, before anyone has touched a bottle.
+        </p>
+      </div>
+
+      <!-- Interactive Action Link (Toggles / Expands the Frosted Glass Cards just like the video) -->
+      <div class="mt-5 sm:mt-6 flex flex-wrap items-center gap-4">
+        <button
+          id="btn-stage-cta"
+          type="button"
+          class="group inline-flex flex-col items-start text-left focus:outline-none"
+        >
+          <div class="flex items-center gap-3 text-[11px] sm:text-[12px] font-medium tracking-[0.18em] uppercase text-white group-hover:text-pink-200 transition-colors">
+            <span id="stage-cta-text">SEE THE HARVEST WINDOW</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform duration-300">───→</span>
+          </div>
+          <span class="w-full h-[1px] bg-white/35 group-hover:bg-pink-300/60 mt-2 transition-colors"></span>
+        </button>
+
+        <!-- Secondary Button when Cards are Open: Back to Story / Order Flacon -->
+        <button
+          id="btn-secondary-story"
+          type="button"
+          class="hidden px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-[10px] tracking-[0.14em] uppercase text-white/85 transition-all"
+        >
+          Read Editorial Note
+        </button>
+      </div>
+    </div>
+
+    <!-- Lower Frosted Glassmorphism Cards Row (Animates in on CTA click or scroll, matching 00:01, 00:04, 00:07, 00:10 in video) -->
+    <div
+      id="glass-cards-wrapper"
+      class="w-full max-w-6xl pointer-events-none opacity-0 translate-y-10 transition-all duration-700 ease-out mb-4 sm:mb-6"
+    >
+      <div id="glass-cards-grid" class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5">
+        <!-- Populated dynamically by JS for the active stage -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= GIANT OUTLINED WATERMARK TEXT (BOTTOM LEFT, MATCHING VIDEO) ================= -->
+  <div class="fixed bottom-1 sm:bottom-2 left-3 sm:left-6 z-10 pointer-events-none select-none overflow-hidden">
+    <div id="watermark-text" class="watermark-stroke text-[54px] sm:text-[88px] md:text-[116px]">
+      Harvest
+    </div>
+  </div>
+
+  <!-- ================= RIGHT FLOATING CIRCULAR ACTION BUTTONS (MATCHING VIDEO) ================= -->
+  <div class="fixed right-5 sm:right-10 bottom-24 sm:bottom-28 z-30 flex flex-col gap-3 pointer-events-auto">
+    <!-- Top Circular Button: Expand / Product Studio View -->
+    <button
+      id="btn-expand-studio"
+      type="button"
+      title="Open Full Rosavia Studio View"
+      class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-105 shadow-lg"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+      </svg>
+    </button>
+
+    <!-- Bottom Circular Button: Advance Next Step / Scroll Down Chevron -->
+    <button
+      id="btn-next-step"
+      type="button"
+      title="Next Animation Step / Stage"
+      class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/25 border border-white/30 backdrop-blur-md flex items-center justify-center text-white transition-all hover:scale-105 shadow-lg"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- ================= BOTTOM BAR (LANGUAGE, SCROLL, NAV LINKS, FOLLOW BOX) ================= -->
+  <footer class="fixed bottom-0 inset-x-0 z-30 px-5 sm:px-10 py-3.5 sm:py-5 flex flex-wrap items-end justify-between gap-4 pointer-events-none">
+    
+    <!-- Bottom Left: Globe + Language Switcher (EN / ID) -->
+    <div class="pointer-events-auto flex items-center gap-3">
+      <button
+        id="btn-lang-toggle"
+        type="button"
+        class="group flex flex-col items-start text-left focus:outline-none"
+        title="Switch Language (English / Bahasa Indonesia)"
+      >
+        <div class="w-6 h-6 rounded-full border border-white/30 flex items-center justify-center text-white/85 group-hover:border-pink-300 group-hover:text-pink-200 transition-colors mb-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M3.6 9h16.8M3.6 15h16.8M12 3a14.5 14.5 0 000 18M12 3a14.5 14.5 0 010 18" />
+          </svg>
+        </div>
+        <span id="lang-label" class="text-[11px] font-normal tracking-wide text-white/80 group-hover:text-white">
+          Language · EN
+        </span>
+      </button>
+    </div>
+
+    <!-- Bottom Center: SCROLL Indicator + 5 Navigation Links (MATERIALS, METHOD, GLOSSARY, ATELIER, CONTACT) -->
+    <div class="pointer-events-auto flex flex-col items-center mx-auto">
+      <!-- Subtle Scroll Indicator -->
+      <button
+        id="btn-scroll-indicator"
+        type="button"
+        class="flex flex-col items-center mb-2.5 group focus:outline-none"
+      >
+        <span id="scroll-word" class="text-[9px] tracking-[0.28em] uppercase text-white/60 group-hover:text-white transition-colors">
+          SCROLL
+        </span>
+        <span class="w-8 h-[1px] bg-white/50 mt-1 scroll-line-anim"></span>
+      </button>
+
+      <!-- Bottom Nav Menu -->
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-[10px] sm:text-[11px] font-medium tracking-[0.18em] uppercase text-white/80">
+        <button type="button" data-modal-target="materials" class="bottom-nav-link hover:text-pink-200 transition-colors">MATERIALS</button>
+        <button type="button" data-modal-target="method" class="bottom-nav-link hover:text-pink-200 transition-colors">METHOD</button>
+        <button type="button" data-modal-target="glossary" class="bottom-nav-link hover:text-pink-200 transition-colors">GLOSSARY</button>
+        <button type="button" data-modal-target="atelier" class="bottom-nav-link text-pink-200 hover:text-white transition-colors">ATELIER</button>
+        <button type="button" data-modal-target="contact" class="bottom-nav-link hover:text-pink-200 transition-colors">CONTACT</button>
+      </div>
+    </div>
+
+    <!-- Bottom Right: Follow the atelier box (Exact match to video) -->
+    <div class="pointer-events-auto hidden lg:flex items-center gap-5 px-4 py-2.5 border border-white/30 bg-black/35 backdrop-blur-md">
+      <div class="text-[10.5px] leading-[1.35] text-white/85">
+        <div id="follow-line-1">Follow the atelier to stay updated</div>
+        <div id="follow-line-2" class="text-white/65">about workshops &amp; releases</div>
+      </div>
+      <div class="flex items-center gap-2.5 text-[11px] font-medium text-white/90">
+        <button type="button" data-social="Instagram (@maison.rosavia)" class="social-btn hover:text-pink-300 transition-colors">Ig</button>
+        <button type="button" data-social="Facebook (Maison Rosavia Parfume)" class="social-btn hover:text-pink-300 transition-colors">Fb</button>
+        <button type="button" data-social="Pinterest (Rosavia Atelier Moodboard)" class="social-btn hover:text-pink-300 transition-colors">Pn</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= INTERACTIVE OVERLAY MODAL (ATELIER / MATERIALS / METHOD / GLOSSARY / CONTACT) ================= -->
+  <div
+    id="luxury-modal-backdrop"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-400 flex items-center justify-center p-4 sm:p-6"
+  >
+    <div
+      id="luxury-modal-panel"
+      class="relative w-full max-w-4xl max-h-[86vh] overflow-y-auto custom-scroll rounded-2xl bg-[#111315]/95 border border-white/20 shadow-2xl p-6 sm:p-8 text-white transform scale-95 transition-transform duration-400"
+    >
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/15">
+        <div>
+          <span id="modal-eyebrow" class="text-[10px] tracking-[0.25em] uppercase text-pink-300/90">MAISON ROSAVIA ATELIER</span>
+          <h3 id="modal-title" class="font-editorial text-3xl sm:text-4xl text-white mt-0.5">Rosavia Extrait de Parfume</h3>
+        </div>
+        <button
+          id="btn-close-modal"
+          type="button"
+          class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition-all"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Dynamic Body -->
+      <div id="modal-body-content" class="mt-6"></div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div
+    id="atelier-toast"
+    class="fixed top-20 right-6 z-50 px-4 py-3 rounded-xl bg-[#161215]/95 border border-pink-300/40 backdrop-blur-xl shadow-2xl text-xs text-white flex items-center gap-3 opacity-0 pointer-events-none transform translate-y-2 transition-all duration-300"
+  >
+    <span class="w-2 h-2 rounded-full bg-[#f4a6b8]"></span>
+    <span id="atelier-toast-msg">Rosavia Extrait de Parfume mist atomized.</span>
+  </div>
+
+  <!-- ================= APPLICATION LOGIC ================= -->
+  <script>
+    (function () {
+      // Bilingual Content Database matching every stage & card in the reference video + Rosavia product specifics
+      const STAGES_DATA = {
+        en: [
+          {
+            id: 0,
+            navName: "The Harvest",
+            counter: "/01",
+            eyebrow: "/01 — HARVEST",
+            materialHeader: "THE MATERIAL",
+            materialName: "/Rosa<br/>Damascena",
+            headline: "Where<br/>Perfume<br/>Begins",
+            watermark: "Harvest",
+            ctaText: "SEE THE HARVEST WINDOW",
+            description:
+              "Rosa damascena is cut by hand between five and nine in the morning, before the sun burns off the lightest molecules. It takes roughly 3,500 kg of petals to distil a single kilogram of rose otto for <strong class='text-pink-200 font-medium'>Rosavia</strong>. Everything the finished Extrait de Parfume is capable of becoming is decided here, in the field, before anyone has touched a bottle.",
+            cardsCols: "md:grid-cols-2 max-w-4xl",
+            cards: [
+              {
+                icon: "leaf",
+                pills: ["Soil & Altitude", "Climate", "Variety"],
+                title: "Terroir",
+                body: "The same rose grown in Isparta and in the Rose Valley of Kazanlak smells measurably different. Soil, altitude and rainfall shift the balance of citronellol and geraniol in the Rosavia oil.",
+                detail: "Rosavia sources high-altitude blush Rosa Damascena petals grown in mineral-rich volcanic loam, giving our 18mL Extrait de Parfume its signature velvety, dewy sweetness without sharp metallic edges."
+              },
+              {
+                icon: "sun",
+                pills: ["05:00 – 09:00", "Hand-Picked", "Whole Flower"],
+                title: "Dawn Picking",
+                body: "Volatile aromatics evaporate as the temperature climbs. Petals must reach the still before midday or half the top-note vibrancy is lost to the morning air.",
+                detail: "Each blossom is twisted gently by hand at first light while morning dew still coats the pink petals, locking in the airy soft feminine scent profile that defines Rosavia."
+              }
+            ]
+          },
+          {
+            id: 1,
+            navName: "Extraction",
+            counter: "/02",
+            eyebrow: "/02 — EXTRACTION",
+            materialHeader: "THE MATERIAL",
+            materialName: "/Copper<br/>Alembic",
+            headline: "Capturing<br/>the Scent",
+            watermark: "Extraction",
+            ctaText: "COMPARE THE METHODS",
+            description:
+              "Scent must be pulled out of the plant without being destroyed in the process. Three methods dominate the modern atelier, and each produces a different smell from identical material — distillation is bright and sharp, solvent extraction rounder and closer to the living Rosavia flower.",
+            cardsCols: "md:grid-cols-3 max-w-6xl",
+            cards: [
+              {
+                icon: "flask",
+                pills: ["~100 °C", "Essential Oil", "Hydrosol"],
+                title: "Steam Distillation",
+                body: "Steam ruptures the plant cells and carries the oil over; it separates from the water in the Florentine flask. Fresh and clean, though heat tempers the most fragile molecules.",
+                detail: "In traditional copper alembics, slow steam distillation yields crisp rose otto and pure floral hydrosol — providing Rosavia's luminous, crystalline opening lift."
+              },
+              {
+                icon: "beaker",
+                pills: ["Low Heat", "Concrete → Absolute", "Rich"],
+                title: "Solvent Extraction",
+                body: "A gentle wash pulls out the waxes and aromatics at low temperature, leaving a solid concrete which is then washed with alcohol into an absolute. The closest record of how the living flower smells.",
+                detail: "Rose absolute forms the plush heart of Rosavia Extrait de Parfume, delivering deep honeyed petal richness and an unmistakable soft feminine aura."
+              },
+              {
+                icon: "sparkles",
+                pills: ["30 – 35 °C", "High Pressure", "Modern"],
+                title: "CO₂ Extraction",
+                body: "Supercritical CO₂ under pressure behaves like a cold solvent, pulling out delicate top and heart molecules with zero heat damage or solvent residue.",
+                detail: "By combining cold CO₂ petal extracts with traditional rose absolute, Rosavia captures the exact scent of fresh pink studio roses resting on silk."
+              }
+            ]
+          },
+          {
+            id: 2,
+            navName: "The Structure",
+            counter: "/03",
+            eyebrow: "/03 — STRUCTURE",
+            materialHeader: "THE MATERIAL",
+            materialName: "/Olfactory<br/>Pyramid",
+            headline: "Top, Heart<br/>and Base",
+            watermark: "Structure",
+            ctaText: "READ THE PYRAMID",
+            description:
+              "A perfume is not one smell but a sequence. Molecules leave the skin in order of their weight, so <strong class='text-pink-200 font-medium'>Rosavia</strong> is composed in three overlapping tiers. What you smell in the first minute evolves gracefully into a soft feminine floral embrace that lingers from morning to midnight.",
+            cardsCols: "md:grid-cols-3 max-w-6xl",
+            cards: [
+              {
+                icon: "droplet",
+                pills: ["5 – 15 min", "Citrus & Dew", "Volatile"],
+                title: "Top Notes",
+                body: "The opening: Calabrian bergamot, pink lychee dew, and sweet pear blossom. They evaporate fastest, and their job is to make a radiant first impression and then step out of the way.",
+                detail: "Top Notes (First 15 Minutes): Sparkling Bergamot, Dewy Pink Lychee, Mandarin Zest. Creates an immediate airy, uplifting halo the moment you atomize Rosavia."
+              },
+              {
+                icon: "heart",
+                pills: ["30 min – 4 hr", "Floral", "Heart"],
+                title: "Heart Notes",
+                body: "The body of the composition — Rosa damascena, blush peony, and silk jasmine. Where the soft feminine character of Rosavia actually lives, and where the core of our Extrait shines.",
+                detail: "Heart Notes (30 Mins – 6 Hours): Bulgarian Rose Absolute, Velvet Pink Peony, Lily of the Valley. The unmistakable 'Soft Feminime Scent' printed on every Rosavia flacon."
+              },
+              {
+                icon: "layers",
+                pills: ["6+ hours", "Woods & Musks", "Fixative"],
+                title: "Base Notes",
+                body: "Cashmere wood, white skin musk, Madagascar vanilla, and amber. Heavy and slow, they anchor the lighter floral notes in place and decide how long the Extrait survives on skin.",
+                detail: "Base Notes (8 – 14+ Hours): White Silk Musk, Cashmere Wood, Warm Ambergris, Soft Vanilla. Anchors the 30% Extrait concentration for all-day longevity."
+              }
+            ]
+          },
+          {
+            id: 3,
+            navName: "Maturation",
+            counter: "/04",
+            eyebrow: "/04 — MATURATION",
+            materialHeader: "THE MATERIAL",
+            materialName: "/Rosavia<br/>Flacon",
+            headline: "Rest,<br/>Filter,<br/>Bottle",
+            watermark: "Maturation",
+            ctaText: "FINISH THE PROCESS",
+            description:
+              "The concentrate rests in dark glass away from light so sharp edges round off and the alcohol note recedes. Chilled and cold-filtered for diamond clarity, <strong class='text-pink-200 font-medium'>Rosavia Extrait de Parfume</strong> is finally sealed into its 18mL crystal flacon — a soft feminine scent crafted for intimate luxury.",
+            cardsCols: "md:grid-cols-3 max-w-6xl",
+            cards: [
+              {
+                icon: "moon",
+                pills: ["4 – 8 Weeks", "Dark & Cool", "Blend"],
+                title: "Maceration",
+                body: "The concentrate rests in alcohol away from light. Sharp edges round off, the alcohol note recedes, and the rose and musk accords finally settle into one seamless smell.",
+                detail: "Every batch of Rosavia matures for 6 weeks in temperature-controlled dark vaults so the Extrait de Parfume feels silky and harmonious from the very first spray."
+              },
+              {
+                icon: "snowflake",
+                pills: ["-5 °C", "24 Hours", "Clarity"],
+                title: "Cold Filtration",
+                body: "Chilling precipitates natural floral waxes out of solution so they can be filtered away. What remains is finished blush perfume, crystal-clear rather than cloudy.",
+                detail: "Filtered at sub-zero temperatures through micron cellulose membranes to preserve the delicate rose-gold liquid clarity inside the clear glass bottle."
+              },
+              {
+                icon: "sparkle",
+                pills: ["Extrait 30%", "18mL Flacon", "Soft Feminine"],
+                title: "Rosavia 18mL Bottle",
+                body: "Capped in polished silver with a glitter-accented blush label. Our 18mL Extrait de Parfume flacon protects the juice while slipping effortlessly into your handbag.",
+                detail: "Click 'Rosavia 18mL' at the top right or click the floating bottle in the center to test the atomizer spray and reserve your Rosavia Extrait de Parfume box."
+              }
+            ]
+          }
+        ],
+        id: [
+          {
+            id: 0,
+            navName: "Panen Mawar",
+            counter: "/01",
+            eyebrow: "/01 — PANEN MAWAR",
+            materialHeader: "BAHAN UTAMA",
+            materialName: "/Rosa<br/>Damascena",
+            headline: "Awal Mula<br/>Sebuah<br/>Parfum",
+            watermark: "Harvest",
+            ctaText: "LIHAT WAKTU PANEN",
+            description:
+              "Kelopak Rosa damascena dipetik langsung dengan tangan antara pukul lima hingga sembilan pagi, sebelum matahari menguapkan molekul aroma paling lembut. Dibutuhkan sekitar 3.500 kg kelopak untuk menyuling satu kilogram rose otto bagi <strong class='text-pink-200 font-medium'>Rosavia</strong>. Karakter mewah Extrait de Parfume ditentukan di sini, langsung di kebun mawar.",
+            cardsCols: "md:grid-cols-2 max-w-4xl",
+            cards: [
+              {
+                icon: "leaf",
+                pills: ["Tanah & Elevasi", "Iklim", "Varietas"],
+                title: "Terroir",
+                body: "Mawar yang tumbuh di lembah pegunungan memiliki keseimbangan molekul citronellol dan geraniol yang unik, memberikan keharuman lembut khas Rosavia.",
+                detail: "Rosavia memilih kelopak mawar merah muda berkualitas tinggi yang menghasilkan aroma Soft Feminime Scent yang manis, segar, dan elegan."
+              },
+              {
+                icon: "sun",
+                pills: ["05:00 – 09:00", "Petik Tangan", "Bunga Utuh"],
+                title: "Petik Fajar",
+                body: "Molekul aromatik menguap saat suhu meningkat. Kelopak harus tiba di ruang penyulingan sebelum tengah hari agar kesegaran top-note tetap terjaga utuh.",
+                detail: "Dipetik saat embun pagi masih menempel pada kelopak mawar merah muda, menjaga kemurnian ekstrak parfum Rosavia 18mL."
+              }
+            ]
+          },
+          {
+            id: 1,
+            navName: "Ekstraksi",
+            counter: "/02",
+            eyebrow: "/02 — EKSTRAKSI",
+            materialHeader: "BAHAN UTAMA",
+            materialName: "/Copper<br/>Alembic",
+            headline: "Menangkap<br/>Esensi Wangi",
+            watermark: "Extraction",
+            ctaText: "BANDINGKAN METODE",
+            description:
+              "Keharuman harus diekstrak dari kelopak bunga tanpa merusak struktur halusnya. Tiga metode utama digunakan di atelier modern — distilasi uap menghasilkan kesegaran berkilau, sementara ekstraksi menghasilkan kehangatan kelopak mawar hidup untuk <strong class='text-pink-200 font-medium'>Rosavia</strong>.",
+            cardsCols: "md:grid-cols-3 max-w-6xl",
+            cards: [
+              {
+                icon: "flask",
+                pills: ["~100 °C", "Minyak Esensial", "Hydrosol"],
+                title: "Distilasi Uap",
+                body: "Uap hangat membuka sel tanaman dan membawa minyak esensial murni menuju labu Florentine. Menghasilkan karakter wangi yang bersih, segar, dan bercahaya.",
+                detail: "Memberikan sentuhan pembuka yang segar dan berkilau pada semprotan pertama Rosavia Extrait de Parfume."
+              },
+              {
+                icon: "beaker",
+                pills: ["Suhu Rendah", "Concrete → Absolute", "Kaya"],
+                title: "Ekstraksi Pelarut",
+                body: "Mengekstrak lilin bunga dan molekul aromatik pada suhu rendah menjadi rose absolute murni — rekaman paling akurat dari wangi mawar mekar.",
+                detail: "Inti dari karakter Soft Feminime Scent pada Rosavia berasal dari kehalusan rose absolute yang mewah."
+              },
+              {
+                icon: "sparkles",
+                pills: ["30 – 35 °C", "Tekanan Tinggi", "Modern"],
+                title: "Ekstraksi CO₂",
+                body: "CO₂ superkritis bekerja sebagai pelarut dingin bertekanan tinggi, menarik molekul kelopak paling lembut tanpa pemanasan sama sekali.",
+                detail: "Menjaga keaslian wangi kelopak mawar merah muda sehingga Rosavia terasa begitu alami dan memikat di kulit."
+              }
+            ]
+          },
+          {
+            id: 2,
+            navName: "Struktur Aroma",
+            counter: "/03",
+            eyebrow: "/03 — STRUKTUR AROMA",
+            materialHeader: "BAHAN UTAMA",
+            materialName: "/Olfactory<br/>Pyramid",
+            headline: "Top, Heart<br/>dan Base",
+            watermark: "Structure",
+            ctaText: "BACA PIRAMIDA AROMA",
+            description:
+              "Parfum mewah bukanlah satu aroma datar, melainkan sebuah simfoni bertahap. Molekul menguap dari kulit berdasarkan beratnya, sehingga <strong class='text-pink-200 font-medium'>Rosavia</strong> dirancang dalam tiga lapisan harmonis yang bertahan sepanjang hari.",
+            cardsCols: "md:grid-cols-3 max-w-6xl",
+            cards: [
+              {
+                icon: "droplet",
+                pills: ["5 – 15 menit", "Sitrus & Embun", "Segar"],
+                title: "Top Notes",
+                body: "Pembuka yang memikat: bergamot segar, embun leci merah muda, dan pir manis. Memberikan kesan pertama yang anggun, cerah, dan feminin.",
+                detail: "Top Notes (15 Menit Pertama): Bergamot, Pink Lychee Dew, Mandarin. Menciptakan aura segar seketika saat disemprotkan."
+              },
+              {
+                icon: "heart",
+                pills: ["30 mnt – 4 jam", "Bunga Mawar", "Inti"],
+                title: "Heart Notes",
+                body: "Jiwa utama komposisi — Rosa damascena, kelopak peony merah muda, dan melati putih. Di sinilah karakter Soft Feminime Scent dari Rosavia bersinar.",
+                detail: "Heart Notes (30 Menit – 6 Jam): Damascus Rose, Pink Peony, Silky Jasmine. Karakter feminin lembut yang ikonik."
+              },
+              {
+                icon: "layers",
+                pills: ["6+ jam", "Musk & Kayu", "Pengikat"],
+                title: "Base Notes",
+                body: "Cashmere wood, white musk lembut, vanila hangat, dan amber. Mengikat lapisan bunga agar konsentrasi Extrait de Parfume bertahan lama di kulit.",
+                detail: "Base Notes (8 – 14+ Jam): White Silk Musk, Cashmere Wood, Vanilla Bean. Menjamin ketahanan ekstra sepanjang hari."
+              }
+            ]
+          },
+          {
+            id: 3,
+            navName: "Maturasi & Botol",
+            counter: "/04",
+            eyebrow: "/04 — MATURASI",
+            materialHeader: "BAHAN UTAMA",
+            materialName: "/Rosavia<br/>Flacon",
+            headline: "Rest,<br/>Filter,<br/>Bottle",
+            watermark: "Maturation",
+            ctaText: "SELESAIKAN PROSES",
+            description:
+              "Konsentrat parfum diistirahatkan dalam ruang gelap agar seluruh molekul menyatu sempurna. Setelah melalui penyaringan dingin untuk kejernihan kristal, <strong class='text-pink-200 font-medium'>Rosavia Extrait de Parfume</strong> dikemas ke dalam botol kristal 18mL berlabel pink glitter yang elegan.",
+            cardsCols: "md:grid-cols-3 max-w-6xl",
+            cards: [
+              {
+                icon: "moon",
+                pills: ["4 – 8 Minggu", "Gelap & Sejuk", "Harmoni"],
+                title: "Maserasi",
+                body: "Konsentrat beristirahat jauh dari cahaya. Aroma alkohol menghilang, menyatukan mawar dan white musk menjadi satu keharuman lembut yang utuh.",
+                detail: "Dimatangkan selama 6 minggu agar setiap tetes Rosavia Extrait de Parfume terasa halus dan mewah sejak semprotan pertama."
+              },
+              {
+                icon: "snowflake",
+                pills: ["-5 °C", "24 Jam", "Kejernihan"],
+                title: "Filtrasi Dingin",
+                body: "Pendinginan suhu minus memisahkan lilin alami bunga sehingga cairan parfum dapat disaring hingga berkilau jernih bagaikan kristal.",
+                detail: "Menghasilkan warna cairan rose-champagne yang bersih dan berkilau di dalam botol kaca persegi Rosavia."
+              },
+              {
+                icon: "sparkle",
+                pills: ["Extrait 30%", "18mL Kristal", "Soft Feminine"],
+                title: "Botol Rosavia 18mL",
+                body: "Tutup silver mengilap dengan label pink bertabur glitter elegan. Flacon kaca 18mL yang praktis dibawa ke mana saja untuk keanggunan sepanjang hari.",
+                detail: "Klik botol Rosavia di tengah layar untuk mencoba efek semprotan mist interaktif atau klik 'Rosavia 18mL' di kanan atas untuk pemesanan."
+              }
+            ]
+          }
+        ]
+      };
+
+      // SVG Icons for Glass Cards
+      const CARD_ICONS = {
+        leaf: '<svg class="w-4 h-4 text-pink-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-4.5-7-8.5-7-12A7 7 0 0119 9c0 3.5-2.5 7.5-7 12z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 21V9"/></svg>',
+        sun: '<svg class="w-4 h-4 text-amber-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>',
+        flask: '<svg class="w-4 h-4 text-amber-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6m-5 0v5.172a2 2 0 01-.586 1.414l-4.828 4.828A2 2 0 004 15.828V19a2 2 0 002 2h12a2 2 0 002-2v-3.172a2 2 0 00-.586-1.414l-4.828-4.828A2 2 0 0114 8.172V3"/></svg>',
+        beaker: '<svg class="w-4 h-4 text-pink-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>',
+        sparkles: '<svg class="w-4 h-4 text-amber-100" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>',
+        droplet: '<svg class="w-4 h-4 text-pink-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
+        heart: '<svg class="w-4 h-4 text-pink-300" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>',
+        layers: '<svg class="w-4 h-4 text-amber-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>',
+        moon: '<svg class="w-4 h-4 text-amber-100" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>',
+        snowflake: '<svg class="w-4 h-4 text-sky-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20m8.66-15L3.34 17m0-10l17.32 10"/></svg>',
+        sparkle: '<svg class="w-4 h-4 text-pink-300" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z"/></svg>'
+      };
+
+      // Application State
+      let currentLang = "en";
+      let currentStage = 0; // 0..3
+      let cardsExpanded = false; // false = editorial paragraph state, true = glassmorphism cards expanded state
+      let stage4BackdropMode = "noir"; // 'studio' (pink rose studio photo) or 'noir' (dark floating petals + cutout bottle)
+      let stage4TransitionTimer = null;
+      let autoTourTimer = null;
+      let isAutoTourPlaying = false;
+      let wheelCooldown = false;
+
+      // DOM Elements
+      const bgLayers = [
+        document.getElementById("bg-stage-0"),
+        document.getElementById("bg-stage-1"),
+        document.getElementById("bg-stage-2"),
+        document.getElementById("bg-stage-3-studio"),
+        document.getElementById("bg-stage-3-noir")
+      ];
+      const heroBottleStage4 = document.getElementById("hero-bottle-stage4");
+      const bottleTiltWrapper = document.getElementById("bottle-tilt-wrapper");
+      const stageNavBtns = document.querySelectorAll(".stage-nav-btn");
+      const counterCurrent = document.getElementById("counter-current");
+      const materialHeadingLabel = document.getElementById("material-heading-label");
+      const materialTitle = document.getElementById("material-title");
+      const stage4ModeSwitcher = document.getElementById("stage4-mode-switcher");
+      const btnModeNoir = document.getElementById("btn-mode-noir");
+      const btnModeStudio = document.getElementById("btn-mode-studio");
+
+      const stageEyebrow = document.getElementById("stage-eyebrow");
+      const stageHeadline = document.getElementById("stage-headline");
+      const storyBodyContainer = document.getElementById("story-body-container");
+      const stageDescription = document.getElementById("stage-description");
+      const btnStageCta = document.getElementById("btn-stage-cta");
+      const stageCtaText = document.getElementById("stage-cta-text");
+      const btnSecondaryStory = document.getElementById("btn-secondary-story");
+
+      const glassCardsWrapper = document.getElementById("glass-cards-wrapper");
+      const glassCardsGrid = document.getElementById("glass-cards-grid");
+      const watermarkText = document.getElementById("watermark-text");
+
+      const btnCinematicTour = document.getElementById("btn-cinematic-tour");
+      const tourBtnLabel = document.getElementById("tour-btn-label");
+      const tourDot = document.getElementById("tour-dot");
+      const btnSprayMist = document.getElementById("btn-spray-mist");
+      const btnOpenProductShowcase = document.getElementById("btn-open-product-showcase");
+      const btnStepCounter = document.getElementById("btn-step-counter");
+      const btnExpandStudio = document.getElementById("btn-expand-studio");
+      const btnNextStep = document.getElementById("btn-next-step");
+      const btnLangToggle = document.getElementById("btn-lang-toggle");
+      const langLabel = document.getElementById("lang-label");
+      const btnScrollIndicator = document.getElementById("btn-scroll-indicator");
+
+      const modalBackdrop = document.getElementById("luxury-modal-backdrop");
+      const modalPanel = document.getElementById("luxury-modal-panel");
+      const modalEyebrow = document.getElementById("modal-eyebrow");
+      const modalTitle = document.getElementById("modal-title");
+      const modalBodyContent = document.getElementById("modal-body-content");
+      const btnCloseModal = document.getElementById("btn-close-modal");
+
+      const toastEl = document.getElementById("atelier-toast");
+      const toastMsg = document.getElementById("atelier-toast-msg");
+      let toastTimeout = null;
+
+      function showToast(message) {
+        toastMsg.textContent = message;
+        toastEl.classList.remove("opacity-0", "translate-y-2", "pointer-events-none");
+        toastEl.classList.add("opacity-100", "translate-y-0");
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toastEl.classList.add("opacity-0", "translate-y-2", "pointer-events-none");
+          toastEl.classList.remove("opacity-100", "translate-y-0");
+        }, 3200);
+      }
+
+      // Render Stage & Sub-state (Story vs Glass Cards)
+      function renderStage(stageIdx, expandCards = false, triggerStage4Flash = false) {
+        currentStage = stageIdx;
+        cardsExpanded = expandCards;
+
+        const dataList = STAGES_DATA[currentLang];
+        const stage = dataList[currentStage];
+
+        // Clear any pending stage 4 studio-to-noir transition
+        if (stage4TransitionTimer) {
+          clearTimeout(stage4TransitionTimer);
+          stage4TransitionTimer = null;
+        }
+
+        // Update Left Vertical Nav
+        stageNavBtns.forEach((btn, idx) => {
+          const indicator = btn.querySelector(".nav-indicator");
+          const label = btn.querySelector(".nav-label");
+          label.textContent = dataList[idx].navName;
+          if (idx === currentStage) {
+            indicator.classList.remove("w-0", "opacity-0");
+            indicator.classList.add("w-6", "opacity-100");
+            label.classList.remove("text-white/45", "font-normal");
+            label.classList.add("text-white", "font-medium");
+          } else {
+            indicator.classList.remove("w-6", "opacity-100");
+            indicator.classList.add("w-0", "opacity-0");
+            label.classList.remove("text-white", "font-medium");
+            label.classList.add("text-white/45", "font-normal");
+          }
+        });
+
+        // Update Right Counter & Material
+        counterCurrent.textContent = stage.counter;
+        materialHeadingLabel.textContent = stage.materialHeader;
+        materialTitle.innerHTML = stage.materialName;
+
+        // Update Background Layers & Stage 04 Special Sequence (matching 00:08 -> 00:09 in the video!)
+        bgLayers.forEach((layer) => {
+          layer.classList.remove("opacity-100", "scale-100");
+          layer.classList.add("opacity-0", "scale-110");
+        });
+
+        if (currentStage < 3) {
+          stage4ModeSwitcher.classList.add("hidden");
+          bgLayers[currentStage].classList.remove("opacity-0", "scale-110");
+          bgLayers[currentStage].classList.add("opacity-100", "scale-100");
+          heroBottleStage4.classList.remove("opacity-100", "scale-100");
+          heroBottleStage4.classList.add("opacity-0", "scale-90", "pointer-events-none");
+        } else {
+          stage4ModeSwitcher.classList.remove("hidden");
+          if (triggerStage4Flash) {
+            // Just like 00:08 in the video: first flash the lush Pink Rose Studio photo for 1.3s, then morph into Noir Floating Petals + Cutout Rosavia Bottle!
+            applyStage4Mode("studio", false);
+            stage4TransitionTimer = setTimeout(() => {
+              applyStage4Mode("noir", true);
+            }, 1350);
+          } else {
+            applyStage4Mode(stage4BackdropMode, false);
+          }
+        }
+
+        // Update Left Editorial Text
+        stageEyebrow.textContent = stage.eyebrow;
+        stageHeadline.innerHTML = stage.headline;
+        stageDescription.innerHTML = stage.description;
+        stageCtaText.textContent = stage.ctaText;
+
+        // Update Giant Outlined Watermark at Bottom Left
+        watermarkText.style.opacity = "0";
+        watermarkText.style.transform = "translateY(12px)";
+        setTimeout(() => {
+          watermarkText.textContent = stage.watermark;
+          watermarkText.style.opacity = "1";
+          watermarkText.style.transform = "translateY(0px)";
+        }, 180);
+
+        // Build Glassmorphism Cards for current stage
+        glassCardsGrid.className = "grid grid-cols-1 gap-3.5 sm:gap-5 " + stage.cardsCols;
+        glassCardsGrid.innerHTML = stage.cards
+          .map(
+            (c, cIdx) => `
+            <div
+              data-card-idx="${cIdx}"
+              class="luxury-glass-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between min-h-[168px] sm:min-h-[188px] cursor-pointer pointer-events-auto"
+              style="transition-delay: ${cIdx * 80}ms"
+            >
+              <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/25 flex items-center justify-center shrink-0">
+                  ${CARD_ICONS[c.icon] || CARD_ICONS.sparkle}
+                </span>
+                ${c.pills
+                  .map(
+                    (p) =>
+                      `<span class="glass-pill px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] text-white/90 tracking-wide">${p}</span>`
+                  )
+                  .join("")}
+              </div>
+              <div class="mt-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-sm sm:text-[15.5px] font-semibold tracking-tight text-white">${c.title}</h3>
+                  <span class="text-[10px] text-pink-200/80 uppercase tracking-widest">Inspect +</span>
+                </div>
+                <p class="text-[11.5px] sm:text-[12.5px] leading-[1.55] text-white/75 font-light mt-1.5">
+                  ${c.body}
+                </p>
+              </div>
+            </div>
+          `
+          )
+          .join("");
+
+        // Attach click listeners to each glass card for detailed inspection
+        glassCardsGrid.querySelectorAll(".luxury-glass-card").forEach((cardEl) => {
+          cardEl.addEventListener("click", () => {
+            const idx = parseInt(cardEl.getAttribute("data-card-idx"), 10);
+            const cardData = stage.cards[idx];
+            if (cardData) {
+              openCardDetailModal(stage, cardData);
+            }
+          });
+        });
+
+        // Toggle Story View vs Expanded Glass Cards View
+        applyCardsExpansionState(cardsExpanded);
+      }
+
+      function applyStage4Mode(mode, withMistBurst) {
+        stage4BackdropMode = mode;
+        if (mode === "studio") {
+          bgLayers[3].classList.remove("opacity-0", "scale-110");
+          bgLayers[3].classList.add("opacity-100", "scale-100");
+          bgLayers[4].classList.remove("opacity-100", "scale-100");
+          bgLayers[4].classList.add("opacity-0", "scale-110");
+
+          heroBottleStage4.classList.remove("opacity-100", "scale-100");
+          heroBottleStage4.classList.add("opacity-0", "scale-90", "pointer-events-none");
+
+          btnModeStudio.className = "px-2.5 py-1 rounded-full bg-pink-500/40 text-white font-medium transition-all";
+          btnModeNoir.className = "px-2.5 py-1 rounded-full text-white/65 hover:text-white transition-all";
+        } else {
+          bgLayers[4].classList.remove("opacity-0", "scale-110");
+          bgLayers[4].classList.add("opacity-100", "scale-100");
+          bgLayers[3].classList.remove("opacity-100", "scale-100");
+          bgLayers[3].classList.add("opacity-0", "scale-110");
+
+          heroBottleStage4.classList.remove("opacity-0", "scale-90", "pointer-events-none");
+          heroBottleStage4.classList.add("opacity-100", "scale-100");
+
+          btnModeNoir.className = "px-2.5 py-1 rounded-full bg-white/25 text-white font-medium transition-all";
+          btnModeStudio.className = "px-2.5 py-1 rounded-full text-white/65 hover:text-white transition-all";
+
+          if (withMistBurst) {
+            triggerAtomizerSpray();
+          }
+        }
+      }
+
+      function applyCardsExpansionState(expanded) {
+        cardsExpanded = expanded;
+        const stage = STAGES_DATA[currentLang][currentStage];
+
+        if (cardsExpanded) {
+          // Collapse editorial paragraph & slide up Frosted Glass Cards (exact animation from video!)
+          storyBodyContainer.classList.remove("opacity-100", "max-h-72", "mt-5", "sm:mt-6");
+          storyBodyContainer.classList.add("opacity-0", "max-h-0", "mt-0");
+
+          glassCardsWrapper.classList.remove("opacity-0", "translate-y-10", "pointer-events-none");
+          glassCardsWrapper.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+
+          stageCtaText.textContent =
+            currentStage < 3
+              ? currentLang === "en"
+                ? "CONTINUE TO NEXT STAGE"
+                : "LANJUT KE TAHAP BERIKUTNYA"
+              : currentLang === "en"
+              ? "EXPLORE ROSAVIA 18ML STUDIO"
+              : "LIHAT STUDIO ROSAVIA 18ML";
+
+          btnSecondaryStory.classList.remove("hidden");
+          btnSecondaryStory.textContent = currentLang === "en" ? "Show Story Note" : "Lihat Catatan Cerita";
+        } else {
+          // Show editorial paragraph & hide Glass Cards
+          storyBodyContainer.classList.remove("opacity-0", "max-h-0", "mt-0");
+          storyBodyContainer.classList.add("opacity-100", "max-h-72", "mt-5", "sm:mt-6");
+
+          glassCardsWrapper.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+          glassCardsWrapper.classList.add("opacity-0", "translate-y-10", "pointer-events-none");
+
+          stageCtaText.textContent = stage.ctaText;
+          btnSecondaryStory.classList.add("hidden");
+        }
+      }
+
+      // Advance one logical step (Story -> Glass Cards -> Next Stage Story -> ...)
+      function stepForward() {
+        if (!cardsExpanded) {
+          applyCardsExpansionState(true);
+        } else {
+          if (currentStage < 3) {
+            renderStage(currentStage + 1, false, currentStage + 1 === 3);
+          } else {
+            renderStage(0, false, false);
+          }
+        }
+      }
+
+      function stepBackward() {
+        if (cardsExpanded) {
+          applyCardsExpansionState(false);
+        } else {
+          if (currentStage > 0) {
+            renderStage(currentStage - 1, true, false);
+          } else {
+            renderStage(3, true, false);
+          }
+        }
+      }
+
+      // Event Listeners for Navigation & Controls
+      stageNavBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          stopAutoTour();
+          const targetIdx = parseInt(btn.getAttribute("data-stage-nav"), 10);
+          renderStage(targetIdx, false, targetIdx === 3);
+        });
+      });
+
+      btnStageCta.addEventListener("click", () => {
+        stopAutoTour();
+        if (!cardsExpanded) {
+          applyCardsExpansionState(true);
+        } else if (currentStage < 3) {
+          renderStage(currentStage + 1, false, currentStage + 1 === 3);
+        } else {
+          openModal("atelier");
+        }
+      });
+
+      btnSecondaryStory.addEventListener("click", () => {
+        stopAutoTour();
+        applyCardsExpansionState(false);
+      });
+
+      btnStepCounter.addEventListener("click", () => {
+        stopAutoTour();
+        const nextStage = (currentStage + 1) % 4;
+        renderStage(nextStage, false, nextStage === 3);
+      });
+
+      btnNextStep.addEventListener("click", () => {
+        stopAutoTour();
+        stepForward();
+      });
+
+      btnScrollIndicator.addEventListener("click", () => {
+        stopAutoTour();
+        stepForward();
+      });
+
+      btnModeNoir.addEventListener("click", () => {
+        stopAutoTour();
+        applyStage4Mode("noir", true);
+      });
+
+      btnModeStudio.addEventListener("click", () => {
+        stopAutoTour();
+        applyStage4Mode("studio", false);
+      });
+
+      document.getElementById("brand-home-trigger").addEventListener("click", () => {
+        stopAutoTour();
+        renderStage(0, false, false);
+      });
+
+      // Mouse Wheel & Touch Swipe Scrollytelling
+      window.addEventListener(
+        "wheel",
+        (e) => {
+          if (!modalBackdrop.classList.contains("pointer-events-none")) return;
+          if (wheelCooldown) return;
+          if (Math.abs(e.deltaY) < 24) return;
+          wheelCooldown = true;
+          stopAutoTour();
+          if (e.deltaY > 0) {
+            stepForward();
+          } else {
+            stepBackward();
+          }
+          setTimeout(() => {
+            wheelCooldown = false;
+          }, 850);
+        },
+        { passive: true }
+      );
+
+      // Keyboard Up/Down/Right/Left support
+      window.addEventListener("keydown", (e) => {
+        if (!modalBackdrop.classList.contains("pointer-events-none")) {
+          if (e.key === "Escape") closeModal();
+          return;
+        }
+        if (e.key === "ArrowDown" || e.key === "ArrowRight" || e.key === "PageDown") {
+          stopAutoTour();
+          stepForward();
+        } else if (e.key === "ArrowUp" || e.key === "ArrowLeft" || e.key === "PageUp") {
+          stopAutoTour();
+          stepBackward();
+        }
+      });
+
+      // Touch swipe support for mobile/tablet
+      let touchStartY = 0;
+      window.addEventListener(
+        "touchstart",
+        (e) => {
+          if (e.touches && e.touches.length > 0) {
+            touchStartY = e.touches[0].clientY;
+          }
+        },
+        { passive: true }
+      );
+      window.addEventListener(
+        "touchend",
+        (e) => {
+          if (!modalBackdrop.classList.contains("pointer-events-none")) return;
+          if (!e.changedTouches || e.changedTouches.length === 0) return;
+          const dy = touchStartY - e.changedTouches[0].clientY;
+          if (Math.abs(dy) > 45) {
+            stopAutoTour();
+            if (dy > 0) stepForward();
+            else stepBackward();
+          }
+        },
+        { passive: true }
+      );
+
+      // 3D Parallax Tilt on the Centered Rosavia Bottle in Stage 04
+      window.addEventListener("mousemove", (e) => {
+        if (currentStage !== 3 || stage4BackdropMode !== "noir") return;
+        const xNorm = (e.clientX / window.innerWidth - 0.5) * 2;
+        const yNorm = (e.clientY / window.innerHeight - 0.5) * 2;
+        bottleTiltWrapper.style.transform = `perspective(900px) rotateY(${xNorm * 8}deg) rotateX(${-yNorm * 6}deg) translate3d(${xNorm * 10}px, ${yNorm * 6}px, 0)`;
+      });
+
+      bottleTiltWrapper.addEventListener("click", () => {
+        triggerAtomizerSpray();
+        showToast(
+          currentLang === "en"
+            ? "✦ Rosavia Extrait de Parfume (Soft Feminime Scent) mist atomized!"
+            : "✦ Semprotan mist Rosavia Extrait de Parfume (Soft Feminime Scent) aktif!"
+        );
+      });
+
+      btnSprayMist.addEventListener("click", () => {
+        triggerAtomizerSpray();
+        showToast(
+          currentLang === "en"
+            ? "✦ Top notes of Bergamot & Rosa Damascena released into the air."
+            : "✦ Aroma Rosa Damascena & Peony segar menyebar di layar."
+        );
+      });
+
+      // Auto-Play Cinematic Tour (Replicates the exact 11-second video flow continuously!)
+      function startAutoTour() {
+        isAutoTourPlaying = true;
+        tourBtnLabel.textContent = currentLang === "en" ? "Pause Video Tour" : "Jeda Tur Video";
+        tourDot.classList.remove("bg-[#f4a6b8]");
+        tourDot.classList.add("bg-emerald-400");
+        if (autoTourTimer) clearInterval(autoTourTimer);
+        autoTourTimer = setInterval(() => {
+          stepForward();
+        }, 2400);
+      }
+
+      function stopAutoTour() {
+        if (!isAutoTourPlaying) return;
+        isAutoTourPlaying = false;
+        tourBtnLabel.textContent = currentLang === "en" ? "Auto-Play Video Tour" : "Putar Tur Animasi";
+        tourDot.classList.remove("bg-emerald-400");
+        tourDot.classList.add("bg-[#f4a6b8]");
+        if (autoTourTimer) {
+          clearInterval(autoTourTimer);
+          autoTourTimer = null;
+        }
+      }
+
+      btnCinematicTour.addEventListener("click", () => {
+        if (isAutoTourPlaying) {
+          stopAutoTour();
+          showToast(currentLang === "en" ? "Interactive manual scroll mode active." : "Mode navigasi manual aktif.");
+        } else {
+          startAutoTour();
+          showToast(
+            currentLang === "en"
+              ? "Playing cinematic 4-stage Rosavia tour..."
+              : "Memutar tur sinematik 4 tahap Rosavia..."
+          );
+        }
+      });
+
+      // Language Switcher (EN / ID)
+      btnLangToggle.addEventListener("click", () => {
+        currentLang = currentLang === "en" ? "id" : "en";
+        langLabel.textContent = currentLang === "en" ? "Language · EN" : "Bahasa · ID";
+        tourBtnLabel.textContent = isAutoTourPlaying
+          ? currentLang === "en"
+            ? "Pause Video Tour"
+            : "Jeda Tur Video"
+          : currentLang === "en"
+          ? "Auto-Play Video Tour"
+          : "Putar Tur Animasi";
+        document.getElementById("follow-line-1").textContent =
+          currentLang === "en" ? "Follow the atelier to stay updated" : "Ikuti atelier kami untuk info terbaru";
+        document.getElementById("follow-line-2").textContent =
+          currentLang === "en" ? "about workshops & releases" : "seputar koleksi & rilis eksklusif";
+        renderStage(currentStage, cardsExpanded, false);
+        showToast(
+          currentLang === "en"
+            ? "Switched language to English."
+            : "Bahasa diubah ke Bahasa Indonesia."
+        );
+      });
+
+      // Social Links
+      document.querySelectorAll(".social-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const channel = btn.getAttribute("data-social");
+          openModal("contact", channel);
+        });
+      });
+
+      // Fullscreen / Expand Studio Button
+      btnExpandStudio.addEventListener("click", () => {
+        stopAutoTour();
+        openModal("atelier");
+      });
+
+      btnOpenProductShowcase.addEventListener("click", () => {
+        stopAutoTour();
+        openModal("atelier");
+      });
+
+      // Bottom Nav Modal Triggers
+      document.querySelectorAll(".bottom-nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          stopAutoTour();
+          const target = link.getAttribute("data-modal-target");
+          openModal(target);
+        });
+      });
+
+      function openCardDetailModal(stage, cardData) {
+        modalEyebrow.textContent = `${stage.eyebrow} • ROSAVIA EXTRAIT DE PARFUME`;
+        modalTitle.textContent = cardData.title;
+        modalBodyContent.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-5 rounded-xl overflow-hidden border border-white/15 bg-black/50 relative">
+              <img src="/assets/atelier/reference-04.jpg" alt="Rosavia Extrait de Parfume" class="w-full h-64 object-cover" />
+              <div class="p-3.5 bg-black/75 border-t border-white/10 flex items-center justify-between text-xs">
+                <span class="text-pink-200 font-medium">Rosavia • Extrait de Parfume</span>
+                <span class="text-white/60">18mL • Soft Feminime Scent</span>
+              </div>
+            </div>
+            <div class="md:col-span-7 space-y-4">
+              <div class="flex flex-wrap gap-2">
+                ${cardData.pills
+                  .map(
+                    (p) =>
+                      `<span class="px-3 py-1 rounded-full bg-pink-500/15 border border-pink-300/35 text-xs text-pink-100">${p}</span>`
+                  )
+                  .join("")}
+              </div>
+              <p class="text-sm sm:text-base text-white/90 leading-relaxed font-light">${cardData.body}</p>
+              <div class="p-4 rounded-xl bg-white/[0.04] border border-white/15">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-pink-300 mb-1.5">Maison Rosavia Atelier Note</div>
+                <p class="text-xs sm:text-sm text-white/80 leading-relaxed">${cardData.detail}</p>
+              </div>
+              <div class="pt-2 flex flex-wrap gap-3">
+                <button type="button" id="modal-Jump-Stage4" class="px-4 py-2 rounded-full bg-[#d44d72] hover:bg-[#e0587e] text-xs font-medium tracking-wider uppercase text-white transition-all">
+                  View Rosavia 18mL Flacon →
+                </button>
+                <button type="button" id="modal-Spray-Now" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-xs tracking-wider uppercase text-white transition-all">
+                  Test Scent Mist ✦
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        showModalWindow();
+
+        document.getElementById("modal-Jump-Stage4").addEventListener("click", () => {
+          closeModal();
+          renderStage(3, true, false);
+        });
+        document.getElementById("modal-Spray-Now").addEventListener("click", () => {
+          closeModal();
+          triggerAtomizerSpray();
+          showToast("✦ Rosavia Extrait de Parfume mist released!");
+        });
+      }
+
+      function openModal(section, extraContext = "") {
+        if (section === "atelier") {
+          modalEyebrow.textContent = "MAISON ROSAVIA • SIGNATURE COLLECTION";
+          modalTitle.textContent = "Rosavia — Extrait de Parfume (18mL)";
+          modalBodyContent.innerHTML = `
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              <!-- Left Studio Photo & Bottle Gallery -->
+              <div class="lg:col-span-6 space-y-4">
+                <div class="rounded-2xl overflow-hidden border border-pink-300/30 shadow-xl bg-black relative group">
+                  <img id="atelier-main-preview" src="/assets/atelier/reference-04.jpg" alt="Rosavia Studio Pink Rose" class="w-full h-72 sm:h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute bottom-3 left-3 right-3 px-3.5 py-2 rounded-xl bg-black/70 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs">
+                    <span class="text-pink-200 font-medium">Rosavia Extrait de Parfume</span>
+                    <span class="text-white/75">Soft Feminime Scent • 18mL</span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <button type="button" id="thumb-studio-btn" class="p-2 rounded-xl border border-pink-400/50 bg-white/5 hover:bg-white/10 flex items-center gap-3 text-left transition-all">
+                    <img src="/assets/atelier/reference-04.jpg" alt="Studio Box & Bottle" class="w-14 h-14 rounded-lg object-cover shrink-0" />
+                    <div>
+                      <div class="text-xs font-medium text-white">Pink Rose Studio</div>
+                      <div class="text-[10px] text-white/60">Bottle &amp; Couture Box</div>
+                    </div>
+                  </button>
+                  <button type="button" id="thumb-cutout-btn" class="p-2 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 flex items-center gap-3 text-left transition-all">
+                    <img src="/assets/atelier/reference-06.png" alt="Crystal Flacon" class="w-14 h-14 rounded-lg object-contain bg-black/60 p-1 shrink-0" />
+                    <div>
+                      <div class="text-xs font-medium text-white">18mL Crystal Flacon</div>
+                      <div class="text-[10px] text-white/60">Close-Up Label Detail</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Specs & Direct Order Drawer -->
+              <div class="lg:col-span-6 space-y-5">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/15 border border-pink-300/35 text-xs text-pink-200">
+                  <span>✦ Extrait de Parfume Concentration (30%)</span>
+                  <span>•</span>
+                  <span>18mL Travel &amp; Couture Flacon</span>
+                </div>
+                <p class="text-sm text-white/85 leading-relaxed font-light">
+                  Crafted for effortless daily elegance, <strong class="text-pink-200 font-medium">Rosavia</strong> blends hand-picked morning <em>Rosa damascena</em> petals, blush peony silk, and sparkling lychee dew over a warm, skin-hugging base of white musk and cashmere wood.
+                </p>
+
+                <!-- Scent Profile Bars -->
+                <div class="space-y-2.5 p-4 rounded-xl bg-white/[0.04] border border-white/15">
+                  <div class="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-1">Olfactory Performance</div>
+                  <div>
+                    <div class="flex justify-between text-xs mb-1"><span>Soft Rose &amp; Peony Floralcy</span><span class="text-pink-200">95%</span></div>
+                    <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full bg-gradient-to-r from-pink-400 to-rose-500 w-[95%]"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs mb-1"><span>Longevity on Skin (Extrait 30%)</span><span class="text-pink-200">12 – 14 Hours</span></div>
+                    <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-200 to-pink-400 w-[92%]"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs mb-1"><span>Sillage &amp; Feminine Aura</span><span class="text-pink-200">Intimate to Radiant</span></div>
+                    <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full bg-gradient-to-r from-pink-300 to-purple-400 w-[88%]"></div></div>
+                  </div>
+                </div>
+
+                <!-- Interactive Order / Reserve Form -->
+                <div class="p-4 rounded-xl bg-gradient-to-br from-[#d44d72]/20 to-black/60 border border-pink-300/30 space-y-3">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <div class="text-xs uppercase tracking-wider text-pink-200">Rosavia Extrait de Parfume — 18mL</div>
+                      <div class="text-lg font-editorial text-white">Includes Signature Pink Box &amp; Crystal Flacon</div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-[11px] text-emerald-200">In Stock</span>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <input id="order-name-input" type="text" placeholder="Your Name" class="w-full px-3 py-2 rounded-lg bg-black/50 border border-white/20 text-xs text-white placeholder-white/40 focus:outline-none focus:border-pink-300" />
+                    <select id="order-qty-select" class="w-full px-3 py-2 rounded-lg bg-black/50 border border-white/20 text-xs text-white focus:outline-none focus:border-pink-300">
+                      <option value="1">1 × Rosavia 18mL Flacon</option>
+                      <option value="2">2 × Rosavia 18mL (Duo Gift Set)</option>
+                      <option value="3">3 × Rosavia 18mL (Atelier Collector Box)</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-wrap gap-2.5 pt-1">
+                    <button type="button" id="btn-confirm-order" class="flex-1 py-2.5 px-4 rounded-lg bg-[#d44d72] hover:bg-[#e0587e] text-xs font-medium tracking-wider uppercase text-white transition-all">
+                      Reserve Rosavia Flacon →
+                    </button>
+                    <button type="button" id="btn-view-in-stage4" class="py-2.5 px-4 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-xs tracking-wider uppercase text-white transition-all">
+                      View 3D Bottle Stage
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          showModalWindow();
+
+          const mainImg = document.getElementById("atelier-main-preview");
+          document.getElementById("thumb-studio-btn").addEventListener("click", () => {
+            mainImg.src = "/assets/atelier/reference-04.jpg";
+            mainImg.className = "w-full h-72 sm:h-80 object-cover transition-transform duration-700";
+          });
+          document.getElementById("thumb-cutout-btn").addEventListener("click", () => {
+            mainImg.src = "/assets/atelier/reference-06.png";
+            mainImg.className = "w-full h-72 sm:h-80 object-contain bg-[#0c0a0e] p-4 transition-transform duration-700";
+          });
+          document.getElementById("btn-confirm-order").addEventListener("click", () => {
+            const nameVal = document.getElementById("order-name-input").value.trim() || "Valued Guest";
+            const qtyVal = document.getElementById("order-qty-select").value;
+            closeModal();
+            triggerAtomizerSpray();
+            showToast(`✦ Thank you, ${nameVal}! Reserved ${qtyVal}× Rosavia Extrait de Parfume (18mL).`);
+          });
+          document.getElementById("btn-view-in-stage4").addEventListener("click", () => {
+            closeModal();
+            renderStage(3, false, false);
+            applyStage4Mode("noir", true);
+          });
+        } else if (section === "materials") {
+          modalEyebrow.textContent = "01 • RAW MATERIALS ATLAS";
+          modalTitle.textContent = "The Botanical Palette of Rosavia";
+          modalBodyContent.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="p-5 rounded-xl bg-white/[0.04] border border-white/15 space-y-2">
+                <span class="text-[10px] uppercase tracking-widest text-pink-300">Primary Heart (55%)</span>
+                <h4 class="font-editorial text-2xl text-white">Rosa Damascena</h4>
+                <p class="text-xs text-white/75 leading-relaxed">Hand-harvested at dawn between 05:00 and 09:00. Yields both crisp rose otto via copper steam distillation and plush rose absolute.</p>
+              </div>
+              <div class="p-5 rounded-xl bg-white/[0.04] border border-white/15 space-y-2">
+                <span class="text-[10px] uppercase tracking-widest text-amber-200">Luminous Opening (20%)</span>
+                <h4 class="font-editorial text-2xl text-white">Pink Lychee &amp; Peony</h4>
+                <p class="text-xs text-white/75 leading-relaxed">Cold CO₂ extracted blush peony petals and dewy lychee accord give Rosavia its airy, modern Soft Feminime Scent signature.</p>
+              </div>
+              <div class="p-5 rounded-xl bg-white/[0.04] border border-white/15 space-y-2">
+                <span class="text-[10px] uppercase tracking-widest text-sky-200">Velvet Fixative (25%)</span>
+                <h4 class="font-editorial text-2xl text-white">White Silk Musk</h4>
+                <p class="text-xs text-white/75 leading-relaxed">Blended with cashmere wood and Madagascar vanilla bean to anchor the 30% Extrait concentration on skin for over 12 hours.</p>
+              </div>
+            </div>
+          `;
+          showModalWindow();
+        } else if (section === "method") {
+          modalEyebrow.textContent = "02 • SAVOIR-FAIRE";
+          modalTitle.textContent = "Four Stages of the Rosavia Atelier";
+          modalBodyContent.innerHTML = `
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              ${STAGES_DATA[currentLang]
+                .map(
+                  (st, i) => `
+                <div data-jump-stage="${i}" class="p-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.09] border border-white/15 cursor-pointer transition-all flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between text-xs text-pink-300 mb-1">
+                      <span>${st.eyebrow}</span>
+                      <span>Jump to Stage →</span>
+                    </div>
+                    <h4 class="font-editorial text-2xl text-white">${st.navName}</h4>
+                    <p class="text-xs text-white/75 mt-2 leading-relaxed">${st.description}</p>
+                  </div>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+          `;
+          showModalWindow();
+          modalBodyContent.querySelectorAll("[data-jump-stage]").forEach((el) => {
+            el.addEventListener("click", () => {
+              const idx = parseInt(el.getAttribute("data-jump-stage"), 10);
+              closeModal();
+              renderStage(idx, true, idx === 3);
+            });
+          });
+        } else if (section === "glossary") {
+          modalEyebrow.textContent = "03 • PERFUMERY LEXICON";
+          modalTitle.textContent = "Atelier Glossary";
+          modalBodyContent.innerHTML = `
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+              <div class="p-4 rounded-xl bg-white/[0.04] border border-white/15">
+                <div class="font-semibold text-pink-200 text-sm mb-1">Extrait de Parfume (25% – 30%)</div>
+                <p class="text-white/75 leading-relaxed">The highest and most precious concentration in fine perfumery. Rosavia is bottled as a true Extrait de Parfume in an 18mL crystal flacon.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/[0.04] border border-white/15">
+                <div class="font-semibold text-pink-200 text-sm mb-1">Concrete &amp; Absolute</div>
+                <p class="text-white/75 leading-relaxed">Waxy aromatic solid extracted from fresh rose petals at low heat, then washed in alcohol to yield pure, concentrated floral absolute.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/[0.04] border border-white/15">
+                <div class="font-semibold text-pink-200 text-sm mb-1">Maceration</div>
+                <p class="text-white/75 leading-relaxed">Weeks of quiet aging in dark glass tanks allowing aromatic molecules and carrier alcohol to bond into a rounded, velvety perfume.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/[0.04] border border-white/15">
+                <div class="font-semibold text-pink-200 text-sm mb-1">Cold Filtration (-5 °C)</div>
+                <p class="text-white/75 leading-relaxed">Chilling the matured perfume before micron filtration so natural floral waxes solidify and separate, leaving diamond-clear liquid.</p>
+              </div>
+            </div>
+          `;
+          showModalWindow();
+        } else if (section === "contact") {
+          modalEyebrow.textContent = "04 • ATELIER CONCIERGE & RELEASES";
+          modalTitle.textContent = extraContext ? `Connect via ${extraContext}` : "Stay Updated with Maison Rosavia";
+          modalBodyContent.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div class="md:col-span-5 rounded-xl overflow-hidden border border-white/15">
+                <img src="/assets/atelier/reference-04.jpg" alt="Rosavia Atelier" class="w-full h-56 object-cover" />
+              </div>
+              <div class="md:col-span-7 space-y-4">
+                <p class="text-xs sm:text-sm text-white/80 leading-relaxed">
+                  Receive private invitations to Maison Rosavia workshops, new batch releases of <strong class="text-pink-200">Rosavia Extrait de Parfume (18mL)</strong>, and bespoke gifting consultations.
+                </p>
+                <div class="space-y-2.5">
+                  <input id="contact-email-input" type="email" placeholder="Enter your email or WhatsApp number" class="w-full px-3.5 py-2.5 rounded-lg bg-black/50 border border-white/25 text-xs text-white placeholder-white/40 focus:outline-none focus:border-pink-300" />
+                  <textarea id="contact-note-input" rows="2" placeholder="Inquiry or message for the Rosavia Atelier..." class="w-full px-3.5 py-2 rounded-lg bg-black/50 border border-white/25 text-xs text-white placeholder-white/40 focus:outline-none focus:border-pink-300"></textarea>
+                  <button type="button" id="btn-submit-contact" class="w-full py-2.5 rounded-lg bg-[#d44d72] hover:bg-[#e0587e] text-xs font-medium tracking-wider uppercase text-white transition-all">
+                    Subscribe &amp; Send Inquiry →
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+          showModalWindow();
+          document.getElementById("btn-submit-contact").addEventListener("click", () => {
+            const val = document.getElementById("contact-email-input").value.trim() || "your contact";
+            closeModal();
+            showToast(`✦ Registered ${val} for Maison Rosavia atelier updates!`);
+          });
+        }
+      }
+
+      function showModalWindow() {
+        modalBackdrop.classList.remove("opacity-0", "pointer-events-none");
+        modalBackdrop.classList.add("opacity-100", "pointer-events-auto");
+        modalPanel.classList.remove("scale-95");
+        modalPanel.classList.add("scale-100");
+      }
+
+      function closeModal() {
+        modalBackdrop.classList.remove("opacity-100", "pointer-events-auto");
+        modalBackdrop.classList.add("opacity-0", "pointer-events-none");
+        modalPanel.classList.remove("scale-100");
+        modalPanel.classList.add("scale-95");
+      }
+
+      btnCloseModal.addEventListener("click", closeModal);
+      modalBackdrop.addEventListener("click", (e) => {
+        if (e.target === modalBackdrop) closeModal();
+      });
+
+      // ================= HTML5 CANVAS PARTICLE, PETAL & MIST PHYSICS =================
+      const canvas = document.getElementById("atelier-canvas");
+      const ctx = canvas.getContext("2d");
+      let cw = (canvas.width = window.innerWidth);
+      let ch = (canvas.height = window.innerHeight);
+
+      window.addEventListener("resize", () => {
+        cw = canvas.width = window.innerWidth;
+        ch = canvas.height = window.innerHeight;
+      });
+
+      // Ambient drifting particles (adapts behavior per stage: pollen/dew in Stage 1, falling rose petals in Stage 2 & 4, rising golden droplets in Stage 3)
+      const NUM_PARTICLES = 34;
+      const particles = [];
+      const mistParticles = [];
+
+      for (let i = 0; i < NUM_PARTICLES; i++) {
+        particles.push({
+          x: Math.random() * cw,
+          y: Math.random() * ch,
+          r: 2 + Math.random() * 5.5,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: 0.35 + Math.random() * 0.65,
+          angle: Math.random() * Math.PI * 2,
+          spin: (Math.random() - 0.5) * 0.02,
+          alpha: 0.2 + Math.random() * 0.45,
+          tint: Math.random() > 0.35 ? "#f4a6b8" : "#ffe6eb"
+        });
+      }
+
+      function triggerAtomizerSpray() {
+        const originX = cw * 0.5;
+        const originY = ch * 0.38;
+        for (let i = 0; i < 65; i++) {
+          const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.4;
+          const speed = 1.5 + Math.random() * 6.5;
+          mistParticles.push({
+            x: originX + (Math.random() - 0.5) * 24,
+            y: originY + (Math.random() - 0.5) * 16,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 0.8,
+            r: 1.5 + Math.random() * 3.5,
+            alpha: 0.75 + Math.random() * 0.25,
+            decay: 0.01 + Math.random() * 0.014,
+            color: i % 3 === 0 ? "255, 230, 238" : "244, 166, 184"
+          });
+        }
+      }
+
+      function animateCanvas() {
+        ctx.clearRect(0, 0, cw, ch);
+
+        // Render stage-responsive ambient botanical petals / golden molecules
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.angle += p.spin;
+
+          if (currentStage === 0) {
+            // Stage 1: Slow floating morning dew & rose pollen
+            p.x += Math.sin(p.angle) * 0.25;
+            p.y -= p.vy * 0.35;
+            if (p.y < -10) p.y = ch + 10;
+          } else if (currentStage === 1 || currentStage === 3) {
+            // Stage 2 & Stage 4: Gently falling & swaying pink rose petals
+            p.x += Math.sin(p.angle) * 0.65 + p.vx;
+            p.y += p.vy * (currentStage === 3 ? 0.85 : 1.05);
+            if (p.y > ch + 20) {
+              p.y = -15;
+              p.x = Math.random() * cw;
+            }
+          } else {
+            // Stage 3: Rising warm copper/amber aromatic molecules
+            p.x += Math.cos(p.angle) * 0.3;
+            p.y -= p.vy * 0.7;
+            if (p.y < -15) {
+              p.y = ch + 15;
+              p.x = Math.random() * cw;
+            }
+          }
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.angle);
+          ctx.globalAlpha = p.alpha;
+
+          if (currentStage === 1 || currentStage === 3) {
+            // Draw soft organic rose petal silhouette
+            ctx.fillStyle = p.tint;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, p.r * 1.45, p.r * 0.85, 0, 0, Math.PI * 2);
+            ctx.fill();
+          } else {
+            // Draw glowing aromatic molecule / dewdrop
+            ctx.fillStyle = currentStage === 2 ? "#e6c699" : "#f4a6b8";
+            ctx.beginPath();
+            ctx.arc(0, 0, p.r * 0.45, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+
+        // Render interactive perfume atomizer mist burst
+        for (let j = mistParticles.length - 1; j >= 0; j--) {
+          const m = mistParticles[j];
+          m.x += m.vx;
+          m.y += m.vy;
+          m.vx *= 0.97;
+          m.vy *= 0.97;
+          m.vy -= 0.02; // slight upward drift
+          m.alpha -= m.decay;
+
+          if (m.alpha <= 0) {
+            mistParticles.splice(j, 1);
+            continue;
+          }
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(${m.color}, ${m.alpha})`;
+          ctx.shadowColor = "rgba(244, 166, 184, 0.6)";
+          ctx.shadowBlur = 8;
+          ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        requestAnimationFrame(animateCanvas);
+      }
+
+      // Initialize Stage 01 on load
+      renderStage(0, false, false);
+      requestAnimationFrame(animateCanvas);
+    })();
+  </script>
+</body>
+</html>
